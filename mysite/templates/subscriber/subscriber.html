@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h1 class="display-4">{{ self.email }}</h1>
+                    <div class="lead">{{ self.name }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

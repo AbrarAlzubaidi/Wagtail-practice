@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
+
+{% block content %}
+
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h1 class="display-4">{{ self.blog_list_title }}</h1>
+                    <div class="lead">
+                        {% for post in posts.all %}
+                        {% image post.blog_image max-1500x800 as img %}
+                        <div class="card" style="width: 18rem;">
+                            <img src="{{ img.url }}" class="card-img-top" alt="{{ img.alt }}">
+                            <div class="card-body">
+                              <h5 class="card-title">{{ post.blog_title }}</h5>
+                              <p class="card-text">{{ post.blog_text}}</p>
+                              <a href="{{ post.url }}" class="btn btn-primary">Go to {{post.blog_title }}</a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
